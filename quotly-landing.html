@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Quotly — Professionele Offertes voor Schildersbedrijven</title>
+<meta name="description" content="Quotly helpt schildersbedrijven in seconden een professionele offerte maken. Automatische berekeningen, direct als PDF. Gevestigd in Tiel."/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --navy: #0f2540;
+  --blue: #1d4ed8;
+  --blue-mid: #2563eb;
+  --accent: #dbeafe;
+  --bg: #f8f9fc;
+  --white: #ffffff;
+  --text: #1a2535;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --shadow: 0 4px 24px rgba(15,37,64,0.08);
+  --shadow-lg: 0 16px 48px rgba(15,37,64,0.12);
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Figtree', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+.serif { font-family: 'Cormorant Garamond', serif; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(248,249,252,0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 40px;
+}
+.nav-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px;
+}
+.nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 700; color: var(--navy); letter-spacing: -0.3px; }
+.nav-logo span { color: var(--blue-mid); }
+.nav-contact { font-size: 13px; color: var(--muted); }
+.nav-contact strong { color: var(--navy); }
+.nav-cta {
+  background: var(--navy); color: #fff;
+  padding: 10px 22px; border-radius: 8px;
+  font-size: 13px; font-weight: 600; text-decoration: none;
+  transition: all 0.2s; letter-spacing: 0.2px;
+}
+.nav-cta:hover { background: var(--blue); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(37,99,235,0.25); }
+
+/* HERO */
+.hero {
+  padding: 160px 40px 100px;
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--accent); color: var(--blue);
+  font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px;
+  padding: 6px 14px; border-radius: 100px; margin-bottom: 28px;
+}
+.hero-eyebrow::before { content: "●"; font-size: 8px; }
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 58px; font-weight: 700; line-height: 1.1;
+  color: var(--navy); letter-spacing: -1px;
+  margin-bottom: 24px;
+}
+.hero-title em { font-style: italic; color: var(--blue-mid); }
+.hero-sub {
+  font-size: 17px; color: var(--muted); line-height: 1.7;
+  margin-bottom: 40px; max-width: 420px;
+}
+.hero-btns { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.btn-primary {
+  background: var(--navy); color: #fff;
+  padding: 14px 28px; border-radius: 10px;
+  font-size: 14px; font-weight: 600; text-decoration: none;
+  transition: all 0.2s; display: inline-flex; align-items: center; gap: 8px;
+  box-shadow: 0 6px 20px rgba(15,37,64,0.2);
+}
+.btn-primary:hover { background: var(--blue); transform: translateY(-2px); box-shadow: 0 10px 28px rgba(37,99,235,0.3); }
+.btn-secondary {
+  color: var(--muted); font-size: 14px; text-decoration: none;
+  display: inline-flex; align-items: center; gap: 6px;
+  transition: color 0.2s;
+}
+.btn-secondary:hover { color: var(--navy); }
+
+/* HERO VISUAL */
+.hero-visual {
+  background: var(--white);
+  border-radius: 20px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+.mock-bar {
+  background: #f1f5f9; border-bottom: 1px solid var(--border);
+  padding: 12px 16px; display: flex; align-items: center; gap: 6px;
+}
+.mock-dot { width: 10px; height: 10px; border-radius: 50%; }
+.mock-body { padding: 28px; }
+.mock-label { font-size: 9px; text-transform: uppercase; letter-spacing: 2px; color: #94a3b8; margin-bottom: 8px; }
+.mock-field {
+  background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px;
+  padding: 10px 14px; font-size: 13px; color: #475569; margin-bottom: 10px;
+}
+.mock-pills { display: flex; gap: 6px; margin-bottom: 20px; flex-wrap: wrap; }
+.mock-pill {
+  padding: 7px 14px; border-radius: 8px; font-size: 12px; font-weight: 500;
+  border: 1px solid #e2e8f0; color: #64748b; background: #fff;
+}
+.mock-pill.active { background: #1d4ed8; border-color: #1d4ed8; color: #fff; }
+.mock-total {
+  background: var(--navy); color: #fff; border-radius: 10px;
+  padding: 16px 20px; display: flex; justify-content: space-between; align-items: center;
+}
+.mock-total-label { font-size: 13px; font-weight: 600; }
+.mock-total-val { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 700; color: #93c5fd; }
+
+/* STATS */
+.stats-bar {
+  background: var(--navy);
+  padding: 40px;
+}
+.stats-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px;
+}
+.stat { text-align: center; }
+.stat-num { font-family: 'Cormorant Garamond', serif; font-size: 48px; font-weight: 700; color: #fff; line-height: 1; }
+.stat-num span { color: #60a5fa; }
+.stat-label { font-size: 13px; color: #94a3b8; margin-top: 8px; }
+
+/* HOW */
+.section { padding: 100px 40px; }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-tag {
+  font-size: 10px; text-transform: uppercase; letter-spacing: 3px;
+  color: var(--blue-mid); font-weight: 600; margin-bottom: 16px;
+}
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 44px; font-weight: 700; color: var(--navy);
+  line-height: 1.15; letter-spacing: -0.5px; margin-bottom: 16px;
+}
+.section-sub { font-size: 16px; color: var(--muted); max-width: 480px; line-height: 1.7; margin-bottom: 60px; }
+
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.step-card {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 16px; padding: 32px 28px;
+  transition: all 0.3s; position: relative; overflow: hidden;
+}
+.step-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--blue-mid), #60a5fa);
+  opacity: 0; transition: opacity 0.3s;
+}
+.step-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+.step-card:hover::before { opacity: 1; }
+.step-num {
+  width: 40px; height: 40px; border-radius: 12px;
+  background: var(--accent); color: var(--blue);
+  font-size: 16px; font-weight: 700; display: flex; align-items: center; justify-content: center;
+  margin-bottom: 20px;
+}
+.step-title { font-size: 17px; font-weight: 600; color: var(--navy); margin-bottom: 10px; }
+.step-desc { font-size: 14px; color: var(--muted); line-height: 1.7; }
+
+/* FEATURES */
+.features-section { background: var(--white); padding: 100px 40px; }
+.features-inner { max-width: 1100px; margin: 0 auto; }
+.features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 60px; }
+.feature-card {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 16px; padding: 28px;
+  display: flex; gap: 20px; align-items: flex-start;
+  transition: all 0.2s;
+}
+.feature-card:hover { border-color: #bfdbfe; background: #f0f7ff; }
+.feature-icon {
+  width: 44px; height: 44px; border-radius: 12px;
+  background: var(--accent); color: var(--blue);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; flex-shrink: 0;
+}
+.feature-title { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
+.feature-desc { font-size: 13px; color: var(--muted); line-height: 1.7; }
+
+/* CTA */
+.cta-section {
+  padding: 100px 40px;
+  background: linear-gradient(135deg, var(--navy) 0%, #1e3a5f 100%);
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+.cta-section::before {
+  content: '';
+  position: absolute; top: -50%; left: -20%; right: -20%; bottom: -50%;
+  background: radial-gradient(ellipse at 50% 50%, rgba(37,99,235,0.2) 0%, transparent 70%);
+}
+.cta-inner { max-width: 600px; margin: 0 auto; position: relative; }
+.cta-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px; font-weight: 700; color: #fff;
+  line-height: 1.15; letter-spacing: -0.5px; margin-bottom: 20px;
+}
+.cta-title em { color: #93c5fd; font-style: italic; }
+.cta-sub { font-size: 16px; color: #94a3b8; margin-bottom: 40px; line-height: 1.7; }
+.cta-btn {
+  background: #fff; color: var(--navy);
+  padding: 16px 36px; border-radius: 12px;
+  font-size: 15px; font-weight: 700; text-decoration: none;
+  display: inline-flex; align-items: center; gap: 10px;
+  transition: all 0.2s;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+.cta-btn:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(0,0,0,0.3); }
+.cta-note { font-size: 12px; color: #64748b; margin-top: 16px; }
+
+/* FOOTER */
+footer {
+  background: #0a1929; padding: 40px;
+  text-align: center;
+}
+.footer-inner { max-width: 1100px; margin: 0 auto; }
+.footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 12px; }
+.footer-logo span { color: #60a5fa; }
+.footer-info { font-size: 13px; color: #475569; line-height: 2; }
+.footer-info a { color: #60a5fa; text-decoration: none; }
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fadeUp 0.7s ease forwards; }
+.fade-up-2 { animation: fadeUp 0.7s 0.15s ease forwards; opacity: 0; }
+.fade-up-3 { animation: fadeUp 0.7s 0.3s ease forwards; opacity: 0; }
+
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; gap: 48px; padding: 120px 24px 60px; }
+  .hero-title { font-size: 40px; }
+  .steps { grid-template-columns: 1fr; }
+  .features-grid { grid-template-columns: 1fr; }
+  .stats-inner { grid-template-columns: 1fr; gap: 24px; }
+  nav { padding: 0 24px; }
+  .nav-contact { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">Quot<span>ly</span></div>
+    <div class="nav-contact"><strong>06-39170400</strong> · quotlynl@gmail.com · Tiel</div>
+    <a href="#probeer" class="nav-cta">Probeer gratis →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section style="background: var(--white);">
+  <div class="hero">
+    <div>
+      <div class="hero-eyebrow fade-up">Voor schildersbedrijven in de regio</div>
+      <h1 class="hero-title fade-up-2">Een professionele offerte in <em>twee minuten</em></h1>
+      <p class="hero-sub fade-up-3">Quotly berekent automatisch de prijs op basis van oppervlakte, type werk en materialen. De klant krijgt direct een nette PDF in zijn inbox.</p>
+      <div class="hero-btns fade-up-3">
+        <a href="#probeer" class="btn-primary">
+          Probeer het zelf
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+        <a href="tel:0639170400" class="btn-secondary">
+          Of bel ons: 06-391 70 400
+        </a>
+      </div>
+    </div>
+    <div class="hero-visual fade-up-2">
+      <div class="mock-bar">
+        <div class="mock-dot" style="background:#fc5c65;"></div>
+        <div class="mock-dot" style="background:#fed330;"></div>
+        <div class="mock-dot" style="background:#26de81;"></div>
+        <div style="margin-left:8px; font-size:11px; color:#94a3b8;">Quotly — Offerte Generator</div>
+      </div>
+      <div class="mock-body">
+        <div class="mock-label">Type werk</div>
+        <div class="mock-pills">
+          <div class="mock-pill active">Sauswerk</div>
+          <div class="mock-pill">Lakwerk</div>
+          <div class="mock-pill">Behangen</div>
+          <div class="mock-pill">Buitenwerk</div>
+        </div>
+        <div class="mock-label">Oppervlakte</div>
+        <div class="mock-field">85 m²</div>
+        <div class="mock-label">Verfsoort</div>
+        <div class="mock-pills">
+          <div class="mock-pill">Standaard</div>
+          <div class="mock-pill active">Premium +15%</div>
+          <div class="mock-pill">Ecologisch</div>
+        </div>
+        <div class="mock-total">
+          <div class="mock-total-label">Totaal incl. BTW</div>
+          <div class="mock-total-val">€ 1.247,85</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat">
+      <div class="stat-num">2<span>min</span></div>
+      <div class="stat-label">Van invullen tot PDF-offerte</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">100<span>%</span></div>
+      <div class="stat-label">Automatische berekeningen</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">€<span>0</span></div>
+      <div class="stat-label">Kosten om te proberen</div>
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-tag">Hoe het werkt</div>
+    <h2 class="section-title">In drie stappen naar een offerte</h2>
+    <p class="section-sub">Geen ingewikkelde software, geen Excel-bestanden. Gewoon invullen en versturen.</p>
+    <div class="steps">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <div class="step-title">Vul de gegevens in</div>
+        <div class="step-desc">Klantgegevens, type werk, oppervlakte en de staat van de ondergrond. Alles in één overzichtelijk formulier.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <div class="step-title">Quotly rekent automatisch</div>
+        <div class="step-desc">Arbeidskosten, materialen en toeslagen worden live berekend op basis van professionele tarieven. Geen handmatig rekenwerk.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <div class="step-title">Download als PDF</div>
+        <div class="step-desc">Één klik en je hebt een professionele, zakelijke offerte klaar om naar de klant te sturen of te printen.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features-section">
+  <div class="features-inner">
+    <div class="section-tag">Waarom Quotly</div>
+    <h2 class="section-title">Alles wat een schildersbedrijf nodig heeft</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🖌️</div>
+        <div>
+          <div class="feature-title">Sauswerk, lakwerk & meer</div>
+          <div class="feature-desc">Ondersteuning voor alle gangbare typen schilderwerk, elk met eigen basistarieven en berekeningen.</div>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <div>
+          <div class="feature-title">Live berekeningen</div>
+          <div class="feature-desc">De prijs wordt direct bijgewerkt terwijl je invult. Geen fouten, geen handmatig rekenen.</div>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📄</div>
+        <div>
+          <div class="feature-title">Professionele PDF</div>
+          <div class="feature-desc">Elke offerte ziet er strak en zakelijk uit. Met offertenummer, geldigheidsdatum en volledige specificaties.</div>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📱</div>
+        <div>
+          <div class="feature-title">Werkt op telefoon & laptop</div>
+          <div class="feature-desc">Bij de klant thuis een offerte nodig? Gewoon je telefoon pakken en ter plekke invullen.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="probeer">
+  <div class="cta-inner">
+    <h2 class="cta-title">Klaar om te proberen?</h2>
+    <p class="cta-sub">Open de Quotly offerte generator en maak in twee minuten je eerste offerte. Helemaal gratis.</p>
+    <a href="schilder-offerte.html" class="cta-btn">
+      Start de offerte generator
+      <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+    </a>
+    <p class="cta-note">Vragen? Bel 06-391 70 400 of mail naar quotlynl@gmail.com</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Quot<span>ly</span></div>
+    <div class="footer-info">
+      Professionele offertesoftware voor schildersbedrijven · Tiel<br/>
+      <a href="tel:0639170400">06-391 70 400</a> · <a href="mailto:quotlynl@gmail.com">quotlynl@gmail.com</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
