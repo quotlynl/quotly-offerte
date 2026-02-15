@@ -437,15 +437,15 @@ footer { background: #0a1929; padding: 40px; text-align: center; }
   <div class="app-main" id="preview-section" style="display:none;">
     <div class="preview-topbar">
       <button class="back-btn" onclick="showAppSection('form')">← Terug</button>
-      <button class="pdf-btn" onclick="window.print()">
-        <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-        PDF Downloaden
-      </button>
+     
     </div>
     <div class="offerte-doc" id="offerte-doc"></div>
   </div>
 </div>
-
+ <button class="pdf-btn" onclick="window.print()">
+        <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+        PDF Downloaden
+      </button>
 <script>
 const TARIEVEN = { sauswerk:{label:'Sauswerk',basisprijs:12,m2PerUur:6}, lakwerk:{label:'Lakwerk',basisprijs:18,m2PerUur:4}, behangen:{label:'Behangen',basisprijs:22,m2PerUur:3.5}, buitenwerk:{label:'Buitenschilderwerk',basisprijs:20,m2PerUur:4.5} };
 const ONDERGROND = { goed:{label:'Goed',toeslag:0}, matig:{label:'Matig',toeslag:0.10}, slecht:{label:'Slecht',toeslag:0.25} };
